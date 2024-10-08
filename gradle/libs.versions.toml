@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.9.24"
-fritz2 = "1.0-RC17"
+fritz2 = "1.0-RC19"
 ksp = "1.9.24-1.0.20"
 
 [libraries]
