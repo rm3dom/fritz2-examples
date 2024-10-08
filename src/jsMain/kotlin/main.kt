@@ -71,7 +71,7 @@ fun RenderContext.page(store: Store<Boolean>?, name: String, goto: String) {
 
         p("m-4") {
             p("mt-4") {
-                +"With a local and global store (page 1 and 2), when the route changes and the store is killed, the modal does not close."
+                +"With a local (page 1), when the route changes the store is killed, the modal does not close."
             }
             p("mt-4") {
                 +"With a global store (page 2), changing routes often, the modal accumulates on the portal stack and eventually displays black."
@@ -97,10 +97,10 @@ fun main() {
         div("h-full") {
             router.data.render(this) { page ->
                 when (page) {
-                    //Local store
+                    //Local store, killed on route change.
                     "page1" -> page(null, "page1", "page2")
 
-                    //Global store, will accumulate on the portal stack.
+                    //Global store, will accumulate on the portal stack (click between the pages a couple of times and then open the modal on page 2)
                     "page2" -> page(globalModalOpen, "page2", "page1")
                     else -> +"No Page"
                 }
